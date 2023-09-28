@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AMap example</title>
+  <style type="text/css">
+    html, body, #mapContainer {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    #panel {
+            position: fixed;
+            background-color: white;
+            max-height: 90%;
+            overflow-y: auto;
+            top: 10px;
+            right: 10px;
+            width: 140px;
+        }
+  </style>
+  <script type="text/javascript">
+  window._AMapSecurityConfig = {
+    securityJsCode:"397ad4f52a21b0474c703b9abf6716d2",
+  }
+</script>
+  <script src="https://webapi.amap.com/maps?v=1.4.15&key=3e7456bfb5815230c980dbd20e3d588e&plugin=AMap.Driving"></script>
+  <script>
+    var map;
+    function initMap(X,Y) {
+        map = new AMap.Map('mapContainer', {
+            viewMode: '2D',
+            zoom: 5,
+            center: [108.948063, 34.259067]
+        });
+        var driving = new AMap.Driving({
+            map: map,
+            panel: 'panel'
+        });
+        driving.search([108.837194,34.123695], [X, Y], function (status, result) {
+        });
+    }
+  </script>
+</head>
+  <div id="mapContainer"></div>
+  <div id="panel"></div>
+<body>
+</body>
+</html>
